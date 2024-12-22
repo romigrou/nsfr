@@ -15,8 +15,9 @@ For the curious among you, here are those rules:
    - Mille is invariant (but is an adjective nonetheless).
    - The only two adjectives that may take a plural form are therefore _vingt_ and _cent_.
  - Nouns always take the plural form where needed.
+ - The ordinal suffix "_ième_" turns nouns into adjectives.
  - In ordinal numbers (1er, 2e, 3e, ...) and in cardinal numbers used as ordinal ones ("page 80"), adjectives never take the plural form.
- - Ordinals can be masculine or feminine depending on what they refer to.
+ - Numbers can be masculine or feminine depending on what they refer to.
 
 
 Écriture des nombres en français
@@ -36,5 +37,6 @@ Pour les curieux parmi vous, voici les règles en question :
    - Mille est invariable (mais reste un adjectif).
    - Les deux seuls adjectifs concernés sont donc _vingt_ et _cent_.
  - Les noms s'accordent toujours au pluriel lorsque nécessaire.
+ - Le suffix ordinal "_ième_" transforme les noms en adjectifs.
  - Dans les nombres ordinaux (1er, 2e, 3e, ...) ainsi que les cardinaux utilisés comme ordinaux ("page 80"), les adjectifs restent au singulier dans tous les cas.
- - Les nombres ordinaux s'accordent au féminin ou au masculin suivant ce à quoi ils se réfèrent.
+ - Les nombres s'accordent au féminin ou au masculin suivant ce à quoi ils se réfèrent.

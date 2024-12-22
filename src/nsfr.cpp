@@ -142,8 +142,6 @@ static const Numeral g_numerals[] =
     {UINT128_C(1000000000000000000000000000000000000), "sextillion"},   // 10^36
     {UINT128_C(1000000000000000000000000000000000000), "sextilliard"},  // 10^39
 #endif
-
-    {0, NULL}
 };
 
 static const char g_millieme[] = {"milli\xC3\xA8me"};
@@ -276,21 +274,23 @@ static void recursive_format(std::string& result, uintmax_t value, unsigned opti
         // Regular case: find the appropriate numeral
         else
         {
-            unsigned i = 0;
-            while (g_numerals[i].value <= value)
+            const size_t numeralCount = sizeof(g_numerals) / sizeof(g_numerals[0]);
+            size_t i = 0;
+            while (i < numeralCount && g_numerals[i].value <= value)
                 ++i;
             numeral = &g_numerals[i-1];
         }
 
-        const bool isNoun    = (numeral->value >  1000); // Is the numeral a noun (as opposed to an adjective)?
-        const bool hasPlural = (numeral->value != 1000); // Does the numeral possess a plural form?
-
         // Compute the multiplier & remainder
-        const unsigned multiplier = static_cast<unsigned>(value / numeral->value);
-        const unsigned remainder  = static_cast<unsigned>(value % numeral->value);
+        const uintmax_t multiplier = value / numeral->value;
+        const uintmax_t remainder  = value % numeral->value;
+
+        // Check the numeral's properties
+        const bool isNoun    = (numeral->value > 1000u && !((options & ORDINAL) && remainder==0u));
+        const bool hasPlural = (numeral->value != 1000u);
 
         // Add the multiplier (if needed)
-        if (multiplier > 1u || isNoun)
+        if (multiplier>1u || isNoun)
         {
             unsigned newOptions = options & ~(TYPE_MASK | FEMININE); // Force masculine cardinal
             if (!isNoun)
@@ -302,7 +302,7 @@ static void recursive_format(std::string& result, uintmax_t value, unsigned opti
         // The numeral itself (with the plural form if needed)
         if ((options & ORDINAL) && !remainder)
         {
-            if (multiplier == 1000u)
+            if (numeral->value == 1000u)
                 result += g_millieme;
             else
             {

@@ -569,6 +569,95 @@ static unsigned test_cardinals_100_999(unsigned type)
 }
 
 
+static unsigned test_ordinals_100_999(unsigned type)
+{
+    assert(type & ORDINAL);
+
+    unsigned succeeded = 0;
+
+    ASSERT_SPELLOUT(100, type,          u8"centième");
+    ASSERT_SPELLOUT(101, type,          u8"cent unième");
+    ASSERT_SPELLOUT(102, type,          u8"cent deuxième");
+    ASSERT_SPELLOUT(110, type,          u8"cent dixième");
+    ASSERT_SPELLOUT(111, type,          u8"cent onzième");
+    ASSERT_SPELLOUT(112, type,          u8"cent douzième");
+    ASSERT_SPELLOUT(113, type,          u8"cent treizième");
+    ASSERT_SPELLOUT(114, type,          u8"cent quatorzième");
+    ASSERT_SPELLOUT(115, type,          u8"cent quinzième");
+    ASSERT_SPELLOUT(116, type,          u8"cent seizième");
+    ASSERT_SPELLOUT(117, type,          u8"cent dix-septième");
+    ASSERT_SPELLOUT(118, type,          u8"cent dix-huitième");
+    ASSERT_SPELLOUT(119, type,          u8"cent dix-neuvième");
+    ASSERT_SPELLOUT(120, type,          u8"cent vingtième");
+    ASSERT_SPELLOUT(121, type,          u8"cent vingt et unième");
+    ASSERT_SPELLOUT(122, type,          u8"cent vingt-deuxième");
+    ASSERT_SPELLOUT(170, type,          u8"cent soixante-dixième");
+    ASSERT_SPELLOUT(171, type,          u8"cent soixante et onzième");
+    ASSERT_SPELLOUT(170, type|SEPTANTE, u8"cent septantième");
+    ASSERT_SPELLOUT(171, type|SEPTANTE, u8"cent septante et unième");
+    ASSERT_SPELLOUT(180, type,          u8"cent quatre-vingtième");
+    ASSERT_SPELLOUT(181, type,          u8"cent quatre-vingt-unième");
+    ASSERT_SPELLOUT(180, type|HUITANTE, u8"cent huitantième");
+    ASSERT_SPELLOUT(181, type|HUITANTE, u8"cent huitante et unième");
+    ASSERT_SPELLOUT(180, type|OCTANTE,  u8"cent octantième");
+    ASSERT_SPELLOUT(181, type|OCTANTE,  u8"cent octante et unième");
+    ASSERT_SPELLOUT(190, type,          u8"cent quatre-vingt-dixième");
+    ASSERT_SPELLOUT(191, type,          u8"cent quatre-vingt-onzième");
+    ASSERT_SPELLOUT(199, type,          u8"cent quatre-vingt-dix-neuvième");
+    ASSERT_SPELLOUT(190, type|NONANTE,  u8"cent nonantième");
+    ASSERT_SPELLOUT(191, type|NONANTE,  u8"cent nonante et unième");
+    ASSERT_SPELLOUT(199, type|NONANTE,  u8"cent nonante-neuvième");
+
+    ASSERT_SPELLOUT(200, type,          u8"deux centième");
+    ASSERT_SPELLOUT(201, type,          u8"deux cent unième");
+    ASSERT_SPELLOUT(219, type,          u8"deux cent dix-neuvième");
+    ASSERT_SPELLOUT(220, type,          u8"deux cent vingtième");
+    ASSERT_SPELLOUT(221, type,          u8"deux cent vingt et unième");
+    ASSERT_SPELLOUT(222, type,          u8"deux cent vingt-deuxième");
+    ASSERT_SPELLOUT(270, type,          u8"deux cent soixante-dixième");
+    ASSERT_SPELLOUT(271, type,          u8"deux cent soixante et onzième");
+    ASSERT_SPELLOUT(270, type|SEPTANTE, u8"deux cent septantième");
+    ASSERT_SPELLOUT(271, type|SEPTANTE, u8"deux cent septante et unième");
+    ASSERT_SPELLOUT(280, type,          u8"deux cent quatre-vingtième");
+    ASSERT_SPELLOUT(281, type,          u8"deux cent quatre-vingt-unième");
+    ASSERT_SPELLOUT(280, type|HUITANTE, u8"deux cent huitantième");
+    ASSERT_SPELLOUT(281, type|HUITANTE, u8"deux cent huitante et unième");
+    ASSERT_SPELLOUT(280, type|OCTANTE,  u8"deux cent octantième");
+    ASSERT_SPELLOUT(281, type|OCTANTE,  u8"deux cent octante et unième");
+    ASSERT_SPELLOUT(290, type,          u8"deux cent quatre-vingt-dixième");
+    ASSERT_SPELLOUT(291, type,          u8"deux cent quatre-vingt-onzième");
+    ASSERT_SPELLOUT(299, type,          u8"deux cent quatre-vingt-dix-neuvième");
+    ASSERT_SPELLOUT(290, type|NONANTE,  u8"deux cent nonantième");
+    ASSERT_SPELLOUT(291, type|NONANTE,  u8"deux cent nonante et unième");
+    ASSERT_SPELLOUT(299, type|NONANTE,  u8"deux cent nonante-neuvième");
+
+    ASSERT_SPELLOUT(900, type,          u8"neuf centième");
+    ASSERT_SPELLOUT(901, type,          u8"neuf cent unième");
+    ASSERT_SPELLOUT(919, type,          u8"neuf cent dix-neuvième");
+    ASSERT_SPELLOUT(920, type,          u8"neuf cent vingtième");
+    ASSERT_SPELLOUT(921, type,          u8"neuf cent vingt et unième");
+    ASSERT_SPELLOUT(922, type,          u8"neuf cent vingt-deuxième");
+    ASSERT_SPELLOUT(970, type,          u8"neuf cent soixante-dixième");
+    ASSERT_SPELLOUT(971, type,          u8"neuf cent soixante et onzième");
+    ASSERT_SPELLOUT(970, type|SEPTANTE, u8"neuf cent septantième");
+    ASSERT_SPELLOUT(971, type|SEPTANTE, u8"neuf cent septante et unième");
+    ASSERT_SPELLOUT(980, type,          u8"neuf cent quatre-vingtième");
+    ASSERT_SPELLOUT(981, type,          u8"neuf cent quatre-vingt-unième");
+    ASSERT_SPELLOUT(980, type|HUITANTE, u8"neuf cent huitantième");
+    ASSERT_SPELLOUT(981, type|HUITANTE, u8"neuf cent huitante et unième");
+    ASSERT_SPELLOUT(980, type|OCTANTE,  u8"neuf cent octantième");
+    ASSERT_SPELLOUT(981, type|OCTANTE,  u8"neuf cent octante et unième");
+    ASSERT_SPELLOUT(990, type,          u8"neuf cent quatre-vingt-dixième");
+    ASSERT_SPELLOUT(991, type,          u8"neuf cent quatre-vingt-onzième");
+    ASSERT_SPELLOUT(999, type,          u8"neuf cent quatre-vingt-dix-neuvième");
+    ASSERT_SPELLOUT(990, type|NONANTE,  u8"neuf cent nonantième");
+    ASSERT_SPELLOUT(991, type|NONANTE,  u8"neuf cent nonante et unième");
+    ASSERT_SPELLOUT(999, type|NONANTE,  u8"neuf cent nonante-neuvième");
+
+    return succeeded;
+}
+
+
 static unsigned test_cardinals_1000_999999(unsigned type)
 {
     unsigned succeeded = 0;
@@ -885,43 +974,232 @@ static unsigned test_cardinals_1000_999999(unsigned type)
 }
 
 
+static unsigned test_ordinals_1000_999999(unsigned type)
+{
+    assert(type & ORDINAL);
+
+    unsigned succeeded = 0;
+
+    ASSERT_SPELLOUT(1000, type,               u8"millième");
+    ASSERT_SPELLOUT(1001, type,               u8"mille unième");
+    ASSERT_SPELLOUT(1002, type,               u8"mille deuxième");
+    ASSERT_SPELLOUT(1019, type,               u8"mille dix-neuvième");
+    ASSERT_SPELLOUT(1020, type,               u8"mille vingtième");
+    ASSERT_SPELLOUT(1021, type,               u8"mille vingt et unième");
+    ASSERT_SPELLOUT(1022, type,               u8"mille vingt-deuxième");
+    ASSERT_SPELLOUT(1070, type,               u8"mille soixante-dixième");
+    ASSERT_SPELLOUT(1071, type,               u8"mille soixante et onzième");
+    ASSERT_SPELLOUT(1070, type|SEPTANTE,      u8"mille septantième");
+    ASSERT_SPELLOUT(1071, type|SEPTANTE,      u8"mille septante et unième");
+    ASSERT_SPELLOUT(1080, type,               u8"mille quatre-vingtième");
+    ASSERT_SPELLOUT(1081, type,               u8"mille quatre-vingt-unième");
+    ASSERT_SPELLOUT(1080, type|HUITANTE,      u8"mille huitantième");
+    ASSERT_SPELLOUT(1081, type|HUITANTE,      u8"mille huitante et unième");
+    ASSERT_SPELLOUT(1080, type|OCTANTE,       u8"mille octantième");
+    ASSERT_SPELLOUT(1081, type|OCTANTE,       u8"mille octante et unième");
+    ASSERT_SPELLOUT(1090, type,               u8"mille quatre-vingt-dixième");
+    ASSERT_SPELLOUT(1091, type,               u8"mille quatre-vingt-onzième");
+    ASSERT_SPELLOUT(1099, type,               u8"mille quatre-vingt-dix-neuvième");
+    ASSERT_SPELLOUT(1090, type|NONANTE,       u8"mille nonantième");
+    ASSERT_SPELLOUT(1091, type|NONANTE,       u8"mille nonante et unième");
+    ASSERT_SPELLOUT(1099, type|NONANTE,       u8"mille nonante-neuvième");
+
+    ASSERT_SPELLOUT(1000, type,               u8"millième");
+    ASSERT_SPELLOUT(1001, type,               u8"mille unième");
+    ASSERT_SPELLOUT(1002, type,               u8"mille deuxième");
+    ASSERT_SPELLOUT(1019, type,               u8"mille dix-neuvième");
+    ASSERT_SPELLOUT(1020, type,               u8"mille vingtième");
+    ASSERT_SPELLOUT(1021, type,               u8"mille vingt et unième");
+    ASSERT_SPELLOUT(1022, type,               u8"mille vingt-deuxième");
+    ASSERT_SPELLOUT(1070, type,               u8"mille soixante-dixième");
+    ASSERT_SPELLOUT(1071, type,               u8"mille soixante et onzième");
+    ASSERT_SPELLOUT(1070, type|SEPTANTE,      u8"mille septantième");
+    ASSERT_SPELLOUT(1071, type|SEPTANTE,      u8"mille septante et unième");
+    ASSERT_SPELLOUT(1080, type,               u8"mille quatre-vingtième");
+    ASSERT_SPELLOUT(1081, type,               u8"mille quatre-vingt-unième");
+    ASSERT_SPELLOUT(1080, type|HUITANTE,      u8"mille huitantième");
+    ASSERT_SPELLOUT(1081, type|HUITANTE,      u8"mille huitante et unième");
+    ASSERT_SPELLOUT(1080, type|OCTANTE,       u8"mille octantième");
+    ASSERT_SPELLOUT(1081, type|OCTANTE,       u8"mille octante et unième");
+    ASSERT_SPELLOUT(1090, type,               u8"mille quatre-vingt-dixième");
+    ASSERT_SPELLOUT(1091, type,               u8"mille quatre-vingt-onzième");
+    ASSERT_SPELLOUT(1099, type,               u8"mille quatre-vingt-dix-neuvième");
+    ASSERT_SPELLOUT(1090, type|NONANTE,       u8"mille nonantième");
+    ASSERT_SPELLOUT(1091, type|NONANTE,       u8"mille nonante et unième");
+    ASSERT_SPELLOUT(1099, type|NONANTE,       u8"mille nonante-neuvième");
+
+    ASSERT_SPELLOUT(1100, type,               u8"mille centième");
+    ASSERT_SPELLOUT(1101, type,               u8"mille cent unième");
+    ASSERT_SPELLOUT(1102, type,               u8"mille cent deuxième");
+    ASSERT_SPELLOUT(1119, type,               u8"mille cent dix-neuvième");
+    ASSERT_SPELLOUT(1120, type,               u8"mille cent vingtième");
+    ASSERT_SPELLOUT(1121, type,               u8"mille cent vingt et unième");
+    ASSERT_SPELLOUT(1122, type,               u8"mille cent vingt-deuxième");
+    ASSERT_SPELLOUT(1170, type,               u8"mille cent soixante-dixième");
+    ASSERT_SPELLOUT(1171, type,               u8"mille cent soixante et onzième");
+    ASSERT_SPELLOUT(1170, type|SEPTANTE,      u8"mille cent septantième");
+    ASSERT_SPELLOUT(1171, type|SEPTANTE,      u8"mille cent septante et unième");
+    ASSERT_SPELLOUT(1180, type,               u8"mille cent quatre-vingtième");
+    ASSERT_SPELLOUT(1181, type,               u8"mille cent quatre-vingt-unième");
+    ASSERT_SPELLOUT(1180, type|HUITANTE,      u8"mille cent huitantième");
+    ASSERT_SPELLOUT(1181, type|HUITANTE,      u8"mille cent huitante et unième");
+    ASSERT_SPELLOUT(1180, type|OCTANTE,       u8"mille cent octantième");
+    ASSERT_SPELLOUT(1181, type|OCTANTE,       u8"mille cent octante et unième");
+    ASSERT_SPELLOUT(1190, type,               u8"mille cent quatre-vingt-dixième");
+    ASSERT_SPELLOUT(1191, type,               u8"mille cent quatre-vingt-onzième");
+    ASSERT_SPELLOUT(1199, type,               u8"mille cent quatre-vingt-dix-neuvième");
+    ASSERT_SPELLOUT(1190, type|NONANTE,       u8"mille cent nonantième");
+    ASSERT_SPELLOUT(1191, type|NONANTE,       u8"mille cent nonante et unième");
+    ASSERT_SPELLOUT(1199, type|NONANTE,       u8"mille cent nonante-neuvième");
+
+    ASSERT_SPELLOUT(1900, type,               u8"mille neuf centième");
+    ASSERT_SPELLOUT(1901, type,               u8"mille neuf cent unième");
+    ASSERT_SPELLOUT(1902, type,               u8"mille neuf cent deuxième");
+    ASSERT_SPELLOUT(1919, type,               u8"mille neuf cent dix-neuvième");
+    ASSERT_SPELLOUT(1920, type,               u8"mille neuf cent vingtième");
+    ASSERT_SPELLOUT(1921, type,               u8"mille neuf cent vingt et unième");
+    ASSERT_SPELLOUT(1922, type,               u8"mille neuf cent vingt-deuxième");
+    ASSERT_SPELLOUT(1970, type,               u8"mille neuf cent soixante-dixième");
+    ASSERT_SPELLOUT(1971, type,               u8"mille neuf cent soixante et onzième");
+    ASSERT_SPELLOUT(1970, type|SEPTANTE,      u8"mille neuf cent septantième");
+    ASSERT_SPELLOUT(1971, type|SEPTANTE,      u8"mille neuf cent septante et unième");
+    ASSERT_SPELLOUT(1980, type,               u8"mille neuf cent quatre-vingtième");
+    ASSERT_SPELLOUT(1981, type,               u8"mille neuf cent quatre-vingt-unième");
+    ASSERT_SPELLOUT(1980, type|HUITANTE,      u8"mille neuf cent huitantième");
+    ASSERT_SPELLOUT(1981, type|HUITANTE,      u8"mille neuf cent huitante et unième");
+    ASSERT_SPELLOUT(1980, type|OCTANTE,       u8"mille neuf cent octantième");
+    ASSERT_SPELLOUT(1981, type|OCTANTE,       u8"mille neuf cent octante et unième");
+    ASSERT_SPELLOUT(1990, type,               u8"mille neuf cent quatre-vingt-dixième");
+    ASSERT_SPELLOUT(1991, type,               u8"mille neuf cent quatre-vingt-onzième");
+    ASSERT_SPELLOUT(1999, type,               u8"mille neuf cent quatre-vingt-dix-neuvième");
+    ASSERT_SPELLOUT(1990, type|NONANTE,       u8"mille neuf cent nonantième");
+    ASSERT_SPELLOUT(1991, type|NONANTE,       u8"mille neuf cent nonante et unième");
+    ASSERT_SPELLOUT(1999, type|NONANTE,       u8"mille neuf cent nonante-neuvième");
+
+    ASSERT_SPELLOUT( 2000, type,              u8"deux millième");
+    ASSERT_SPELLOUT( 2001, type,              u8"deux mille unième");
+    ASSERT_SPELLOUT( 3000, type,              u8"trois millième");
+    ASSERT_SPELLOUT( 4000, type,              u8"quatre millième");
+    ASSERT_SPELLOUT( 5000, type,              u8"cinq millième");
+    ASSERT_SPELLOUT( 6000, type,              u8"six millième");
+    ASSERT_SPELLOUT( 7000, type,              u8"sept millième");
+    ASSERT_SPELLOUT( 8000, type,              u8"huit millième");
+    ASSERT_SPELLOUT( 9000, type,              u8"neuf millième");
+    ASSERT_SPELLOUT(10000, type,              u8"dix millième");
+    ASSERT_SPELLOUT(11000, type,              u8"onze millième");
+    ASSERT_SPELLOUT(12000, type,              u8"douze millième");
+    ASSERT_SPELLOUT(13000, type,              u8"treize millième");
+    ASSERT_SPELLOUT(14000, type,              u8"quatorze millième");
+    ASSERT_SPELLOUT(15000, type,              u8"quinze millième");
+    ASSERT_SPELLOUT(16000, type,              u8"seize millième");
+    ASSERT_SPELLOUT(17000, type,              u8"dix-sept millième");
+    ASSERT_SPELLOUT(18000, type,              u8"dix-huit millième");
+    ASSERT_SPELLOUT(19000, type,              u8"dix-neuf millième");
+    ASSERT_SPELLOUT(20000, type,              u8"vingt millième");
+    ASSERT_SPELLOUT(30000, type,              u8"trente millième");
+    ASSERT_SPELLOUT(40000, type,              u8"quarante millième");
+    ASSERT_SPELLOUT(50000, type,              u8"cinquante millième");
+    ASSERT_SPELLOUT(60000, type,              u8"soixante millième");
+    ASSERT_SPELLOUT(70000, type,              u8"soixante-dix millième");
+    ASSERT_SPELLOUT(70000, type|SEPTANTE,     u8"septante millième");
+    ASSERT_SPELLOUT(80000, type,              u8"quatre-vingt millième");
+    ASSERT_SPELLOUT(80000, type|HUITANTE,     u8"huitante millième");
+    ASSERT_SPELLOUT(80000, type|OCTANTE,      u8"octante millième");
+    ASSERT_SPELLOUT(80200, type,              u8"quatre-vingt mille deux centième");
+    ASSERT_SPELLOUT(80200, type|HUITANTE,     u8"huitante mille deux centième");
+    ASSERT_SPELLOUT(80200, type|OCTANTE,      u8"octante mille deux centième");
+    ASSERT_SPELLOUT(90000, type,              u8"quatre-vingt-dix millième");
+    ASSERT_SPELLOUT(90000, type|NONANTE,      u8"nonante millième");
+    ASSERT_SPELLOUT(99999, type,              u8"quatre-vingt-dix-neuf mille neuf cent quatre-vingt-dix-neuvième");
+    ASSERT_SPELLOUT(99999, type|NONANTE,      u8"nonante-neuf mille neuf cent nonante-neuvième");
+
+    ASSERT_SPELLOUT(100000, type,             u8"cent millième");
+    ASSERT_SPELLOUT(200000, type,             u8"deux cent millième");
+    ASSERT_SPELLOUT(300000, type,             u8"trois cent millième");
+    ASSERT_SPELLOUT(400000, type,             u8"quatre cent millième");
+    ASSERT_SPELLOUT(500000, type,             u8"cinq cent millième");
+    ASSERT_SPELLOUT(600000, type,             u8"six cent millième");
+    ASSERT_SPELLOUT(700000, type,             u8"sept cent millième");
+    ASSERT_SPELLOUT(800000, type,             u8"huit cent millième");
+    ASSERT_SPELLOUT(888777, type,             u8"huit cent quatre-vingt-huit mille sept cent soixante-dix-septième");
+    ASSERT_SPELLOUT(888777, type|SWITZERLAND, u8"huit cent huitante-huit mille sept cent septante-septième");
+    ASSERT_SPELLOUT(900000, type,             u8"neuf cent millième");
+    ASSERT_SPELLOUT(999999, type|BELGIUM,     u8"neuf cent nonante-neuf mille neuf cent nonante-neuvième");
+
+    return succeeded;
+}
+
+
 static unsigned test_large_cardinals(unsigned type)
 {
     unsigned succeeded = 0;
 
-    ASSERT_SPELLOUT( 1000000, type|MASCULINE,   u8"un million");
-    ASSERT_SPELLOUT( 1000001, type|MASCULINE,   u8"un million un");
-    ASSERT_SPELLOUT( 1000001, type|FEMININE,    u8"un million une");
+    ASSERT_SPELLOUT( 1000000, type|MASCULINE,     u8"un million");
+    ASSERT_SPELLOUT( 1000001, type|MASCULINE,     u8"un million un");
+    ASSERT_SPELLOUT( 1000001, type|FEMININE,      u8"un million une");
     if (type & CARDINAL_AS_ORDINAL)
-        ASSERT_SPELLOUT( 1000200, type|MASCULINE, "un million deux cent");
+        ASSERT_SPELLOUT( 1000200, type|MASCULINE, u8"un million deux cent");
     else
-        ASSERT_SPELLOUT( 1000200, type|MASCULINE, "un million deux cents");
-    ASSERT_SPELLOUT( 1000201, type|FEMININE,    u8"un million deux cent une");
-    ASSERT_SPELLOUT( 2000000, type|MASCULINE,   u8"deux millions");
-    ASSERT_SPELLOUT( 2000001, type|MASCULINE,   u8"deux millions un");
-    ASSERT_SPELLOUT( 2000001, type|FEMININE,    u8"deux millions une");
+        ASSERT_SPELLOUT( 1000200, type|MASCULINE, u8"un million deux cents");
+    ASSERT_SPELLOUT( 1000201, type|FEMININE,      u8"un million deux cent une");
+    ASSERT_SPELLOUT( 2000000, type|MASCULINE,     u8"deux millions");
+    ASSERT_SPELLOUT( 2000001, type|MASCULINE,     u8"deux millions un");
+    ASSERT_SPELLOUT( 2000001, type|FEMININE,      u8"deux millions une");
     if (type & CARDINAL_AS_ORDINAL)
-        ASSERT_SPELLOUT( 2000200, type|MASCULINE, "deux millions deux cent");
+        ASSERT_SPELLOUT( 2000200, type|MASCULINE, u8"deux millions deux cent");
     else
-        ASSERT_SPELLOUT( 2000200, type|MASCULINE, "deux millions deux cents");
-    ASSERT_SPELLOUT( 2000201, type|FEMININE,    u8"deux millions deux cent une");
+        ASSERT_SPELLOUT( 2000200, type|MASCULINE, u8"deux millions deux cents");
+    ASSERT_SPELLOUT( 2000201, type|FEMININE,      u8"deux millions deux cent une");
     if (type & CARDINAL_AS_ORDINAL)
     {
-        ASSERT_SPELLOUT(80000000, type|MASCULINE, "quatre-vingt millions");
-        ASSERT_SPELLOUT(80000001, type|MASCULINE, "quatre-vingt millions un");
-        ASSERT_SPELLOUT(80000001, type|FEMININE,u8"quatre-vingt millions une");
-        ASSERT_SPELLOUT(80000200, type|MASCULINE, "quatre-vingt millions deux cent");
-        ASSERT_SPELLOUT(80000201, type|FEMININE,u8"quatre-vingt millions deux cent une");
+        ASSERT_SPELLOUT(80000000, type|MASCULINE, u8"quatre-vingt millions");
+        ASSERT_SPELLOUT(80000001, type|MASCULINE, u8"quatre-vingt millions un");
+        ASSERT_SPELLOUT(80000001, type|FEMININE,  u8"quatre-vingt millions une");
+        ASSERT_SPELLOUT(80000200, type|MASCULINE, u8"quatre-vingt millions deux cent");
+        ASSERT_SPELLOUT(80000201, type|FEMININE,  u8"quatre-vingt millions deux cent une");
     }
     else
     {
-        ASSERT_SPELLOUT(80000000, type|MASCULINE, "quatre-vingts millions");
-        ASSERT_SPELLOUT(80000001, type|MASCULINE, "quatre-vingts millions un");
-        ASSERT_SPELLOUT(80000001, type|FEMININE,u8"quatre-vingts millions une");
-        ASSERT_SPELLOUT(80000200, type|MASCULINE, "quatre-vingts millions deux cents");
-        ASSERT_SPELLOUT(80000201, type|FEMININE,u8"quatre-vingts millions deux cent une");
+        ASSERT_SPELLOUT(80000000, type|MASCULINE, u8"quatre-vingts millions");
+        ASSERT_SPELLOUT(80000001, type|MASCULINE, u8"quatre-vingts millions un");
+        ASSERT_SPELLOUT(80000001, type|FEMININE,  u8"quatre-vingts millions une");
+        ASSERT_SPELLOUT(80000200, type|MASCULINE, u8"quatre-vingts millions deux cents");
+        ASSERT_SPELLOUT(80000201, type|FEMININE,  u8"quatre-vingts millions deux cent une");
     }
 
+    ASSERT_SPELLOUT(UINT32_MAX, type, u8"quatre milliards deux cent quatre-vingt-quatorze millions neuf cent soixante-sept mille deux cent quatre-vingt-quinze");
+    ASSERT_SPELLOUT(UINT64_MAX, type, u8"dix-huit trillions quatre cent quarante-six billiards sept cent quarante-quatre billions soixante-treize milliards sept cent neuf millions cinq cent cinquante et un mille six cent quinze");
+
+    return succeeded;
+}
+
+
+static unsigned test_large_ordinals(unsigned type)
+{
+    assert(type & ORDINAL);
+
+    unsigned succeeded = 0;
+
+    ASSERT_SPELLOUT( 1000000, type, u8"millionième");
+    ASSERT_SPELLOUT( 1000001, type, u8"un million unième");
+    ASSERT_SPELLOUT( 1000200, type, u8"un million deux centième");
+    ASSERT_SPELLOUT( 1000201, type, u8"un million deux cent unième");
+    ASSERT_SPELLOUT( 2000000, type, u8"deux millionième");
+    ASSERT_SPELLOUT( 2000001, type, u8"deux millions unième");
+    ASSERT_SPELLOUT( 2000200, type, u8"deux millions deux centième");
+    ASSERT_SPELLOUT(80000000, type, u8"quatre-vingt millionième");
+    ASSERT_SPELLOUT(80000001, type, u8"quatre-vingt millions unième");
+    ASSERT_SPELLOUT(80000200, type, u8"quatre-vingt millions deux centième");
+    ASSERT_SPELLOUT(80000201, type, u8"quatre-vingt millions deux cent unième");
+
+    ASSERT_SPELLOUT(UINT64_C(1000000000000000000), type, u8"trillionième");
+    ASSERT_SPELLOUT(UINT64_C(1000000000000000001), type, u8"un trillion unième");
+    ASSERT_SPELLOUT(UINT64_C(1000000000000000200), type, u8"un trillion deux centième");
+    ASSERT_SPELLOUT(UINT64_C(1000000000000000201), type, u8"un trillion deux cent unième");
+    ASSERT_SPELLOUT(UINT64_C(2000000000000000000), type, u8"deux trillionième");
+    ASSERT_SPELLOUT(UINT64_C(2000000000000000001), type, u8"deux trillions unième");
+    ASSERT_SPELLOUT(UINT64_C(2000000000000000200), type, u8"deux trillions deux centième");
+    ASSERT_SPELLOUT(UINT64_MAX,                    type, u8"dix-huit trillions quatre cent quarante-six billiards sept cent quarante-quatre billions soixante-treize milliards sept cent neuf millions cinq cent cinquante et un mille six cent quinzième");
 
     return succeeded;
 }
@@ -953,9 +1231,12 @@ static unsigned test_ordinals()
 {
     unsigned succeeded = 0;
     succeeded += test_ordinals_0_99();
-//    succeeded += test_ordinals_100_999();
-//    succeeded += test_ordinals_1000_999999();
-//    succeeded += test_large_ordinals();
+    succeeded += test_ordinals_100_999(ORDINAL|MASCULINE);
+    succeeded += test_ordinals_100_999(ORDINAL|FEMININE);
+    succeeded += test_ordinals_1000_999999(ORDINAL|MASCULINE);
+    succeeded += test_ordinals_1000_999999(ORDINAL|FEMININE);
+    succeeded += test_large_ordinals(ORDINAL|MASCULINE);
+    succeeded += test_large_ordinals(ORDINAL|FEMININE);
     return succeeded;
 }
 
